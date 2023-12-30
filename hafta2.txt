@@ -1,0 +1,45 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BolunenleriBulVeYazdir : MonoBehaviour
+{
+    void Start()
+    {
+        // Örnek sayılar
+        int a = 1;
+        int b = 20;
+
+        // Listeleri döndüren fonksiyonu çağırma
+        List<int> ikiyeBolunenler = BolunenleriBul(a, b, 2);
+        List<int> uceBolunenler = BolunenleriBul(a, b, 3);
+        List<int> dorteBolunenler = BolunenleriBul(a, b, 4);
+        List<int> beseBolunenler = BolunenleriBul(a, b, 5);
+
+        // Listeleri ekrana yazdırma
+        Debug.Log("2'ye bölünenler: " + ListeyiStringeCevir(ikiyeBolunenler));
+        Debug.Log("3'e bölünenler: " + ListeyiStringeCevir(uceBolunenler));
+        Debug.Log("4'e bölünenler: " + ListeyiStringeCevir(dorteBolunenler));
+        Debug.Log("5'e bölünenler: " + ListeyiStringeCevir(beseBolunenler));
+    }
+
+    List<int> BolunenleriBul(int a, int b, int bolunen)
+    {
+        List<int> bolunenlerListesi = new List<int>();
+
+        for (int i = a; i <= b; i++)
+        {
+            if (i % bolunen == 0)
+            {
+                bolunenlerListesi.Add(i);
+            }
+        }
+
+        return bolunenlerListesi;
+    }
+
+    string ListeyiStringeCevir(List<int> liste)
+    {
+        return string.Join(" - ", liste);
+    }
+}
